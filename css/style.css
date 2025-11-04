@@ -23,6 +23,12 @@ header {
   padding-bottom: 60px;
 }
 
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
 
 /* Container for text */
 .container {
