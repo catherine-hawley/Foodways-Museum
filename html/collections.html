@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Collections - Museum</title>
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+  .submenu {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 30px !important; 
+      padding: 15px 0;
+    }
+
+    .collection-item {
+      display: flex;
+      background-color: green;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 2rem;
+      margin-bottom: 3rem;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 2rem;
+    }
+
+    .artifact-img {
+      width: 300px;
+      height: auto;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+
+   .field-group {
+  flex: 1;
+  min-width: 250px; 
+}
+
+    .field-group p {
+      margin: 0.5rem 0;
+      line-height: 1.4;
+    }
+
+    .collection-item h2 {
+      margin-top: 0;
+      font-size: 1.8rem;
+    }
+
+.artifact-details {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem; /* optional: adds spacing between columns */
+  flex-wrap: wrap; /* optional: allows wrapping on smaller screens */
+}
+
+    .artifact-details h2 {
+      width: 100%;
+      margin-top: 0;
+      font-size: 1.8rem;
+      flex-basis: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Museum of Northwest Foodways</h1>
+    <nav>
+      <button onclick="location.href='index.html'">Home</button>
+      <button onclick="location.href='staff.html'">Staff</button>
+      <button onclick="location.href='collections.html'">Collections</button>
+      <button onclick="location.href='admin.html'">Login</button>
+    </nav>
+ 
+
+  <div class="submenu">
+    <button onclick="showSection('archaeology')">Archaeology</button>
+    <button onclick="showSection('anthropology')">Anthropology</button>
+    <button onclick="showSection('histories')">Histories</button>
+    <button onclick="showSection('assemblages')">Assemblages</button>
+  </div>
+ </header>
+  <main>
+    <section id="archaeology" class="collection-section">
+
+      <h2>Composite Halibut Hooks</h2>
+      <div class="collection-item">
+        <img src="../images/collections/artifact1.jpg" style="width:250px;" alt="Composite Halibut Hooks" class="artifact-img" />
+      
+        <div class="artifact-details">
+          <div class="field-group col">
+            <h2>Composite Halibut Hooks (Set of 3)</h2>
+            <p><em>Museum ID: PNW-2018-0347</em></p>
+            <p><strong>Material:</strong> Western red cedar shank, deer antler barb, spruce root cordage</p>
+            <p><strong>Size/Weight/Shape:</strong> 18.5 cm length (largest), curved J-shape, 45g</p>
+            <p><strong>Date:</strong> 550-720 CE (carbon dated)</p>
+            <p><strong>Preservation State:</strong> 85% complete (Hook A), waterlogged preservation, good structural integrity</p>
+            <p><strong>Location Found:</strong> Tseycum Village Site, Saanich Peninsula, Vancouver Island, BC</p>
+          </div>
+        
+          <div class="field-group col">
+            <h3>Use and Function</h3>
+            <p><strong>Likely Purpose:</strong> Deep-water halibut fishing at depths of 50-200+ meters</p>
+            <p><strong>Evidence of Use:</strong> Smooth wear patterns from handling and line friction, microscopic striations on barb tips indicating contact with bone/cartilage</p>
+          </div>
+        
+          <div class="field-group col">
+            <h3>Cultural Context</h3>
+            <p><strong>Symbolism:</strong> Fishing hooks held deep spiritual meaning in Coast Salish culture, symbolizing connection between human world and sea realm</p>
+            <p><strong>Cataloged by:</strong> Dr. Sarah Chen, Head of Foodways Collection</p>
+          </div>
+        </div>
+      </div>
+
+      <h2>Clamshell Scrapers</h2>
+      <div class="collection-item">
+        <img src="../images/collections/artifact2.jpg" style="width:250px;" alt="Clamshell Scrapers" class="artifact-img" />
+      
+        <div class="artifact-details">
+          <div class="field-group">
+            <h2>Clamshell Scrapers (Set of 3)</h2>
+            <p><em>Museum ID: PNW-2019-0156</em></p>
+            <p><strong>Material:</strong> Pacific littleneck clam shells, some with wooden handle remnants attached with pitch adhesive</p>
+            <p><strong>Size/Weight/Shape:</strong> 6.5-8.2 cm length, natural curved shell shape with worked edges, 15-28g each</p>
+            <p><strong>Date:</strong> 890-1050 CE (carbon dated from associated materials)</p>
+            <p><strong>Preservation State:</strong> Three scrapers nearly complete with sharp working edges intact, one fragmentary with handle missing, minor surface erosion on all specimens</p>
+            <p><strong>Location Found:</strong> Excavated from midden deposit at Tsawwassen Beach site, Fraser River Delta, BC</p>
+          </div>
+        
+          <div class="field-group">
+            <h3>Use and Function</h3>
+            <p><strong>Likely Purpose:</strong> Multi-purpose cutting and scraping tools used for processing fish (descaling, filleting), cleaning animal hides, working wood, and general food preparation tasks</p>
+            <p><strong>Evidence of Use:</strong> Distinctive wear patterns along shell edges showing polishing from repeated contact with soft materials, microscopic fish scale residue detected on two specimens, compression marks from cordage binding on handle attachment points</p> 
+          </div>
+        
+          <div class="field-group">
+            <h3>Cultural Context</h3>
+            <p><strong>Symbolism:</strong> While utilitarian, shell tools connected users to marine environment and held practical and spiritual significance in Coast Salish worldview where all resources were gifts requiring respectful use</p>
+            <p><strong>Cataloged by:</strong> Dr. Sarah Chen, Head of Foodways Collection</p>
+          </div>
+        </div>
+      </div>
+
+      <h2>Bentwood Storage Box</h2>
+      <div class="collection-item">
+        <img src="../images/collections/artifact3.jpg" style="width:250px;" alt="Bentwood Storage Box" class="artifact-img" />
+      
+        <div class="artifact-details">
+          <div class="field-group">
+            <h2>Bentwood Storage Box</h2>
+            <p><em>Museum ID: PNW-2017-0088</em></p>
+            <p><strong>Material:</strong> Western red cedar, bent and steamed single plank construction, joined with cedar root lashing and wooden pegs, decorated with carved and painted designs</p>
+            <p><strong>Size/Weight/Shape:</strong> 42 cm length x 38 cm width x 35 cm height, rectangular with fitted lid, approximately 8.5 kg</p>
+            <p><strong>Date:</strong> circa 1880-1910</p>
+            <p><strong>Preservation State:</strong> Excellent condition, minimal cracking, paint partially faded but designs clearly visible, lid intact, minor wear on base from use</p>
+            <p><strong>Location Found:</strong> Donated from private collection, originally from Squamish Nation family, Howe Sound area, BC</p>
+          </div>
+        
+          <div class="field-group">
+            <h3>Use and Function</h3>
+            <p><strong>Likely Purpose:</strong> Storage of dried foods (salmon, berries, camas bulbs), preservation of eulachon oil, storage of ceremonial regalia, possible use as cooking vessel with hot stones</p>
+            <p><strong>Evidence of Use:</strong> Interior shows staining consistent with oil storage, slight charring on exterior base suggesting proximity to fires, compression marks on rim from lid use, smooth wear on handles from repeated lifting</p>
+          </div>
+        
+          <div class="field-group">
+            <h3>Cultural Context</h3>
+            <p><strong>Symbolism:</strong> Cedar boxes held enormous cultural importance - cedar itself is sacred "tree of life" in Coast Salish culture, salmon design connects to most important food resource and spiritual beliefs about respect and reciprocity with natural world, boxes often given as gifts at potlatch ceremonies representing wealth and generosity</p>
+            <p><strong>Cataloged by:</strong> Dr. Sarah Chen, Head of Foodways Collection</p>
+          </div>
+        </div>
+      </div>
+      
+    </section>
+
+    <section id="anthropology" class="collection-section" style="display:none;">
+      
+      <h2>Community Cookbook Collection</h2>
+      <div class="collection-item">
+        <img src="../images/collections/artifact4.jpg" style="width:250px;" alt="Stack of cookbooks" class="artifact-img" />
+      
+        <div class="artifact-details">
+          <div class="field-group">
+            <h2>Community Cookbook Collection </h2>
+            <p><em>Museum ID: PNW-2021-0234</em></p>
+            <p><strong>Material:</strong> Printed paper, spiral binding (most), some hand-typed and mimeographed, others offset printed</p>
+            <p><strong>Size/Weight/Shape:</strong> Various sizes, 15-90 pages each, 8.5 x 11 inch format typical, range from 150g to 400g</p>
+            <p><strong>Date:</strong> 1948-1978</p>
+            <p><strong>Preservation State:</strong> Good to fair condition, some cover wear and staining, recipe pages show frequent use with food splatters and handwritten notes, some pages loose but present</p>
+            <p><strong>Location Found:</strong> Donated from estate of Mrs. Helen Yamamoto, collected from various Seattle-area churches, schools, and community organizations</p>
+          </div>
+
+          <div class="field-group">
+            <h3>Use and Function</h3>
+            <p><strong>Likely Purpose:</strong> Daily preparation of pho broth requiring 12-24 hours of simmering beef bones, star anise, cinnamon, ginger, and aromatics</p>
+            <p><strong>Evidence of Use:</strong> Distinctive burnished interior pattern from decades of stirring and skimming, heat marks on base indicating fixed burner position, patina from years of use, estimated 50,000+ bowls of pho produced</p>
+          </div>
+        
+          <div class="field-group">
+            <h3>Cultural Context</h3>
+            <p><strong>Symbolism:</strong> Represents culinary tradition passed through generations in Vietnam, community gathering space for Vietnamese refugees, bridge between heritage and American life</p>
+            <p><strong>Cataloged by:</strong> Dr. Marcus Thompson, Curator of Contemporary Foodways</p>
+        </div>
+          </div>
+        </div>
+      </div>
+
+
+ <h2>Vietnamese Pho Pot</h2>
+      <div class="collection-item">
+        <img src="../images/collections/artifact5.jpg" style="width:250px;" alt="Large aluminum cooking pot showing signs of frequent use" class="artifact-img" />
+      
+        <div class="artifact-details">
+          <div class="field-group">
+            <h3>Vietnamese Pho Pot</h3>
+            <p><strong>Material:</strong> Aluminum</p>
+            <p><strong>Size/Weight/Shape:</strong> 45 cm diameter, 50 cm height, 38 liters capacity, cylindrical stockpot</p>
+            <p><strong>Date:</strong> circa 1982</p>
+           <p><strong>Preservation State:</strong> Retired from service, heat discoloration on exterior, mineral deposits on interior, burnished pattern from stirring, small dents and repairs, stable condition</p>
+            <p><strong>Location Found:</strong> Donated by owner</p>
+          </div>
+
+          <div class="field-group">
+            <h3>Use and Function</h3>
+            <p><strong>Likely Purpose:</strong> Fundraising for churches and community groups, sharing recipes within immigrant and ethnic communities, preserving cultural food traditions, teaching American cooking to newer immigrants, building community bonds</p>
+            <p><strong>Evidence of Use:</strong> Handwritten margin notes with ingredient substitutions, grease stains and flour marks on popular recipes, recipe additions tucked into pages, dried ingredient smudges, names and phone numbers of recipe contributors annotated with notes like "ask her about the dumplings"</p>
+          </div>
+        
+          <div class="field-group">
+            <h3>Cultural Context</h3>
+            <p><strong>Symbolism:</strong> Cookbooks represent intersection of cultural preservation and assimilation - traditional ethnic recipes appear alongside "American" dishes showing negotiation of identity, fundraising aspect shows how food brought communities together for common goals, handwritten notes and modifications show living documents passed between generations</p>
+            <p><strong>Cataloged by:</strong> Dr. Marcus Thompson, Curator of Contemporary Foodways</p>
+          </div>
+        </div>
+      </div>
+      
+
+      <h2>Hop Picking Basket</h2>
+      <div class="collection-item">
+        <img src="../images/collections/artifact6.jpg" style="width:250px;" alt="Hop Picking Basket" class="artifact-img" />
+
+        <div class="artifact-details">
+          <div class="field-group">
+            <h2>Hop Picking Basket</h2>
+            <p><em>Museum ID: PNW-2020-0112</em></p>
+            <p><strong>Material:</strong> Woven cedar bark and willow, reinforced rim</p>
+            <p><strong>Size/Weight/Shape:</strong> 45 cm diameter at top, 30 cm deep, cone/bucket shape tapering to flat base, approximately 1.2 kg empty</p>
+            <p><strong>Date:</strong> circa 1935-1945</p>
+            <p><strong>Preservation State:</strong> Well-used condition, some splits in weaving repaired with wire in places, handle strap frayed but intact, structural integrity good, dark staining from hop oils and residue throughout</p>
+            <p><strong>Location Found:</strong> Donated from Yakima Valley Historical Society, originally used at hop farms in Yakima Valley, Washington</p>
+          </div>
+
+          <div class="field-group">
+            <h3>Use and Function</h3>
+            <p><strong>Likely Purpose:</strong> Harvesting hops during seasonal picking season, worn suspended from shoulder or waist, filled basket emptied into larger collection bins for weighing and payment</p>
+            <p><strong>Evidence of Use:</strong> Heavy staining and residue from hop oils, compression marks on rim where basket rested against picker's body, wire repairs show continued use and maintenance, wear pattern on strap shows right-handed user, interior base shows compressed fibers from weight of hops</p>
+          </div>
+
+          <div class="field-group">
+            <h3>Cultural Context</h3>
+            <p><strong>Symbolism:</strong> Represents intersection of traditional Indigenous craft knowledge and commercial agriculture, reflects complex history of Native labor in agricultural economy, embodies seasonal migration patterns and harvest culture, connects to broader Pacific Northwest brewing and beer culture</p>
+            <p><strong>Cataloged by:</strong> Dr. Amara Okafor, Senior Research Ethnographer</p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section id="histories" class="collection-section" style="display:none;">
+      <p>Content coming soon...</p>
+    </section>
+
+    <section id="assemblages" class="collection-section" style="display:none;">
+      <p>Content coming soon...</p>
+    </section>
+  </main>
+
+  <script>
+    function showSection(section) {
+      const sections = document.querySelectorAll('.collection-section');
+      sections.forEach(s => s.style.display = 'none');
+      document.getElementById(section).style.display = 'block';
+    }
+  </script>
+</body>
+</html>
+
