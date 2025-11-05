@@ -82,12 +82,37 @@
       cursor: pointer;
       color: #444;
     }
+    /* Tooltip container */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black; /* Add dots under the hoverable text */
+  cursor: pointer;
+}
+
+/* Tooltip text */
+.tooltiptext {
+  visibility: hidden; /* Hidden by default */
+  width: 130px;
+  background-color: black;
+  color: #fffffff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1; /* Ensure tooltip is displayed above content */
+}
+
+/* Show the tooltip text on hover */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
   </style>
 </head>
 
 <body>
  <header>
-    <h1>Museum of Northwest Foodways</h1>
+    <h1>Museum Shop</h1>
     <nav>
       <button onclick="location.href='index.html'">Home</button>
       <button onclick="location.href='html/staff.html'">Staff</button>
@@ -98,7 +123,10 @@
 
     <!-- BEGIN SINGLE ITEM BLOCK-->
     <div class="souvenir-item" data-id="item001">
+      <div class="tool tip">
       <img src="../images/shop/shopitem1.jpg" alt="handwoven storage basket with decoration" onclick="openModal(this)" />
+    <span class="tooltiptext">Each native tribe uses its own intricate designs.</span>
+    </div>
       <h3>Storage Basket</h3>
       <p>Handwoven cedar-root basket inspired by Pacific Northwest Coast designs, featuring traditional formline art in rich red and black tones.</p>
       <p><strong>Price:</strong> $45.00</p>
