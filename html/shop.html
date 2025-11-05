@@ -108,7 +108,10 @@
 .tooltip:hover .tooltiptext {
   visibility: visible;
 }
-  </style>
+img {
+  border: 5px solid #555;
+}
+</style>
 </head>
 
 <body>
@@ -137,7 +140,10 @@
 
     <!-- BEGIN SINGLE ITEM BLOCK-->
     <div class="souvenir-item" data-id="item002">
+       <div class="tooltip">
       <img src="../images/shop/shopitem2.jpg" alt="Museum cookbook" onclick="openModal(this)" />
+     <span class="tooltiptext">Includes historic photos.</span> 
+    </div>
       <h3>Museum Cookbook</h3>
       <p>Every recipe tells a story in this collection. Dishes for every occasion arranged by main ingredient.</p>
       <p><strong>Price:</strong> $32.50</p>
@@ -147,7 +153,10 @@
 
      <!-- BEGIN SINGLE ITEM BLOCK-->
     <div class="souvenir-item" data-id="item003">
+        <div class="tooltip">
       <img src="../images/shop/shopitem3.jpg" alt="package of smoked salmon" onclick="openModal(this)" />
+       <span class="tooltiptext">Currently featuring Coho salmon from the Quinalt tribe.</span>
+      </div>
       <h3>Smoked Salmon</h3>
       <p>Alder-smoked following traditional methods by a consortium of native tribal groups. Type of salmon varies by season.</p>
       <p><strong>Price:</strong> $24.00</p>
@@ -157,7 +166,10 @@
 
      <!-- BEGIN SINGLE ITEM BLOCK-->
     <div class="souvenir-item" data-id="item004">
+      <div class="tooltip">
       <img src="../images/shop/shopitem4.jpg" alt="camas seed packet" onclick="openModal(this)" />
+       <span class="tooltiptext">Native people harvested and baked camas bulbs as a sweet, fructose-rich food.</span>
+      </div>
       <h3>Native Seed Packet</h3>
       <p>Current offering: Bulbs for Common Camas, once a staple food for native people. 100 seeds per packet.</p>
       <p><strong>Price:</strong> $12.00</p>
