@@ -121,6 +121,7 @@ img {
     <button onclick="location.href='../index.html'" class="button">Home</button>
     <button onclick="location.href='../html/staff.html'" class="button">Staff</button>
     <button onclick="location.href='../html/collections.html'" class="button">Collections</button>
+    <button onclick="location.href='../html/cart.html'" id="viewCartBtn">View Cart</button>   
     </nav>
 
   <div class="shop-container">
@@ -134,6 +135,7 @@ img {
       <h3>Storage Basket</h3>
       <p>Handwoven cedar-root basket inspired by Pacific Northwest Coast designs, featuring traditional formline art in rich red and black tones.</p>
       <p><strong>Price:</strong> $45.00</p>
+     <span class="qty-badge" aria-live="polite"></span>
       <button
   onclick="addToCart(this)"
   data-id="item001"
@@ -154,6 +156,7 @@ img {
       <h3>Museum Cookbook</h3>
       <p>Every recipe tells a story in this collection. Dishes for every occasion arranged by main ingredient.</p>
       <p><strong>Price:</strong> $32.50</p>
+      <span class="qty-badge" aria-live="polite"></span>
      <button
   onclick="addToCart(this)"
   data-id="item002"
@@ -174,6 +177,7 @@ img {
       <h3>Smoked Salmon</h3>
       <p>Alder-smoked following traditional methods by a consortium of native tribal groups. Type of salmon varies by season.</p>
       <p><strong>Price:</strong> $24.00</p>
+      <span class="qty-badge" aria-live="polite"></span>
       <button
   onclick="addToCart(this)"
   data-id="item003"
@@ -194,6 +198,7 @@ img {
       <h3>Native Seed Packet</h3>
       <p>Current offering: Bulbs for Common Camas, once a staple food for native people. 100 seeds per packet.</p>
       <p><strong>Price:</strong> $12.00</p>
+      <span class="qty-badge" aria-live="polite"></span>
       <button
   onclick="addToCart(this)"
   data-id="item004"
@@ -215,9 +220,50 @@ img {
   </div>
 
   <script>
-    function addToCart(itemId) {
-      alert("Added " + itemId + " to cart (functionality to come)");
-      // Future: Push to cart array
+    //this key links the shop to the cart
+
+    const CART_KEY = 'museumCartV1';
+    
+
+// This function reads the Cart information and write it to JSON  
+    function readCart() {
+      try { return JSON.parse(localStorage.getItem(CART_KEY)) || []; }
+      catch { return []; }
+    }
+
+    function writeCart(cart) {
+      localStorage.setItem(CART_KEY, JSON.stringify(cart));
+    }
+ 
+/*This function is called by the addToCart button the first part reads the dataset contined in the buttons and asssigns the values to variables */
+
+    function addToCart(btn) {
+      const id = btn.dataset.id;
+      const name = btn.dataset.name;
+      const unitPrice = Number(btn.dataset.price);
+      const image = btn.dataset.image;
+
+/* This part puts all of the individual items and puts them into an object called cart and writes it to LocalStorage   */
+
+      let cart = readCart();
+      const idx = cart.findIndex(it => it.id === id);
+      if (idx >= 0) {
+        cart[idx].qty += 1;
+      } else {
+        cart.push({ id, name, unitPrice, qty: 1, image });
+      }
+      writeCart(cart);
+
+      // Update the item card's qty badge
+
+      const card = btn.closest('.souvenir-item');
+      if (card) {
+        const badge = card.querySelector('.qty-badge');
+        if (badge) {
+          const item = cart.find(it => it.id === id);
+          badge.textContent = item ? `Qty: ${item.qty}` : '';
+        }
+      }
     }
 
     function openModal(imgElement) {
