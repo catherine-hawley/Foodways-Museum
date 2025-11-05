@@ -129,7 +129,7 @@ button:hover {
 
 .collection-item {
   display: flex;
-  background-color: green;
+  background-color:#4A7C59;
   flex-direction: row;
   align-items: flex-start;
   gap: 2rem;
