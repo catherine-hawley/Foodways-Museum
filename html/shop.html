@@ -12,14 +12,15 @@
        .shop-container {
       display: flex;
       flex-wrap: wrap;
+      color:#3A4D3E;
       gap: 20px;
       padding-top: 20px;
     }
 
     .souvenir-item {
       width: 250px;
-      background-color: #ffffff;
-      border: 2px solid #222;
+      background-color: #5B8FA3;
+      border: 4px solid #222;
       padding: 10px;
       border-radius: 6px;
       position: relative;
@@ -81,58 +82,132 @@
       cursor: pointer;
       color: #444;
     }
-  </style>
+    /* Tooltip container */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black; /* Add dots under the hoverable text */
+  cursor: pointer;
+}
+
+/* Tooltip text */
+.tooltiptext {
+  visibility: hidden; /* Hidden by default */
+   top: -5px;
+  width: 130px;
+  background-color:#5B8FA3;
+  color: #fffffff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1; /* Ensure tooltip is displayed above content */
+}
+
+/* Show the tooltip text on hover */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+img {
+  border: 5px solid #555;
+}
+</style>
 </head>
 
 <body>
  <header>
-    <h1>Museum of Northwest Foodways</h1>
+    <h1>Museum Shop</h1>
     <nav>
-      <button onclick="location.href='index.html'">Home</button>
-      <button onclick="location.href='staff.html'">Staff</button>
-      <button onclick="location.href='collections.html'">Collections</button>
-      <button onclick="location.href='shop.html'">shop</button>
+    <button onclick="location.href='../index.html'" class="button">Home</button>
+    <button onclick="location.href='../html/staff.html'" class="button">Staff</button>
+    <button onclick="location.href='../html/collections.html'" class="button">Collections</button>
+    <button onclick="location.href='../html/cart.html'" id="viewCartBtn">View Cart</button>   
     </nav>
+    </header>
 
   <div class="shop-container">
 
     <!-- BEGIN SINGLE ITEM BLOCK-->
     <div class="souvenir-item" data-id="item001">
+      <div class="tooltip">
       <img src="../images/shop/shopitem1.jpg" alt="handwoven storage basket with decoration" onclick="openModal(this)" />
+    <span class="tooltiptext">Each native tribe uses its own intricate designs.</span>
+      </div>
       <h3>Storage Basket</h3>
       <p>Handwoven cedar-root basket inspired by Pacific Northwest Coast designs, featuring traditional formline art in rich red and black tones.</p>
       <p><strong>Price:</strong> $45.00</p>
-      <button onclick="addToCart('item001')">Add Storage Basket to Cart</button>
+     <span class="qty-badge" aria-live="polite"></span>
+      <button
+  onclick="addToCart(this)"
+  data-id="item001"
+  data-name="Storage Basket"
+  data-price="45.00"
+  data-image="../images/shop/shopitem1.jpg">
+  Add Storage Basket to Cart
+</button>
     </div>
     <!-- END SINGLE ITEM BLOCK -->
 
     <!-- BEGIN SINGLE ITEM BLOCK-->
     <div class="souvenir-item" data-id="item002">
+       <div class="tooltip">
       <img src="../images/shop/shopitem2.jpg" alt="Museum cookbook" onclick="openModal(this)" />
-      <h3>Listing Title</h3>
-      <p>Listing Description</p>
-      <p><strong>Price:</strong> $00.00</p>
-      <button onclick="addToCart('item002')">Add [Replace with Item Name] to Cart</button>
+     <span class="tooltiptext">Includes historic photos.</span> 
+    </div>
+      <h3>Museum Cookbook</h3>
+      <p>Every recipe tells a story in this collection. Dishes for every occasion arranged by main ingredient.</p>
+      <p><strong>Price:</strong> $32.50</p>
+      <span class="qty-badge" aria-live="polite"></span>
+     <button
+  onclick="addToCart(this)"
+  data-id="item002"
+  data-name="Museum Cookbook"
+  data-price="32.50"
+  data-image="../images/shop/shopitem2.jpg">
+  Add Museum Cookbook to Cart
+</button>
     </div>
     <!-- END SINGLE ITEM BLOCK -->
 
      <!-- BEGIN SINGLE ITEM BLOCK-->
     <div class="souvenir-item" data-id="item003">
+        <div class="tooltip">
       <img src="../images/shop/shopitem3.jpg" alt="package of smoked salmon" onclick="openModal(this)" />
-      <h3>Listing Title</h3>
-      <p>Listing Description</p>
-      <p><strong>Price:</strong> $00.00</p>
-      <button onclick="addToCart('item003')">Add [Replace with Item Name] to Cart</button>
+       <span class="tooltiptext">Currently featuring Coho salmon from the Quinalt tribe.</span>
+      </div>
+      <h3>Smoked Salmon</h3>
+      <p>Alder-smoked following traditional methods by a consortium of native tribal groups. Type of salmon varies by season.</p>
+      <p><strong>Price:</strong> $24.00</p>
+      <span class="qty-badge" aria-live="polite"></span>
+      <button
+  onclick="addToCart(this)"
+  data-id="item003"
+  data-name="Smoked Salmon"
+  data-price="24.00"
+  data-image="../images/shop/shopitem3.jpg">
+  Add Smoked Salmon to Cart
+</button>
     </div>
     <!-- END SINGLE ITEM BLOCK -->
 
      <!-- BEGIN SINGLE ITEM BLOCK-->
     <div class="souvenir-item" data-id="item004">
+      <div class="tooltip">
       <img src="../images/shop/shopitem4.jpg" alt="camas seed packet" onclick="openModal(this)" />
-      <h3>Listing Title</h3>
-      <p>Listing Description</p>
-      <p><strong>Price:</strong> $00.00</p>
-      <button onclick="addToCart('item004')">Add [Replace with Item Name] to Cart</button>
+       <span class="tooltiptext">Native people harvested and baked camas bulbs as a sweet, fructose-rich food.</span>
+      </div>
+      <h3>Native Seed Packet</h3>
+      <p>Current offering: Bulbs for Common Camas, once a staple food for native people. 100 seeds per packet.</p>
+      <p><strong>Price:</strong> $12.00</p>
+      <span class="qty-badge" aria-live="polite"></span>
+      <button
+  onclick="addToCart(this)"
+  data-id="item004"
+  data-name="Native Seed Packet"
+  data-price="12.00"
+  data-image="../images/shop/shopitem4.jpg">
+  Add Native Seed Packet to Cart
+</button>
     </div>
     <!-- END SINGLE ITEM BLOCK -->
   </div>
@@ -146,9 +221,50 @@
   </div>
 
   <script>
-    function addToCart(itemId) {
-      alert("Added " + itemId + " to cart (functionality to come)");
-      // Future: Push to cart array
+    //this key links the shop to the cart
+
+    const CART_KEY = 'museumCartV1';
+    
+
+// This function reads the Cart information and write it to JSON  
+    function readCart() {
+      try { return JSON.parse(localStorage.getItem(CART_KEY)) || []; }
+      catch { return []; }
+    }
+
+    function writeCart(cart) {
+      localStorage.setItem(CART_KEY, JSON.stringify(cart));
+    }
+ 
+/*This function is called by the addToCart button the first part reads the dataset contined in the buttons and asssigns the values to variables */
+
+    function addToCart(btn) {
+      const id = btn.dataset.id;
+      const name = btn.dataset.name;
+      const unitPrice = Number(btn.dataset.price);
+      const image = btn.dataset.image;
+
+/* This part puts all of the individual items and puts them into an object called cart and writes it to LocalStorage   */
+
+      let cart = readCart();
+      const idx = cart.findIndex(it => it.id === id);
+      if (idx >= 0) {
+        cart[idx].qty += 1;
+      } else {
+        cart.push({ id, name, unitPrice, qty: 1, image });
+      }
+      writeCart(cart);
+
+      // Update the item card's qty badge
+
+      const card = btn.closest('.souvenir-item');
+      if (card) {
+        const badge = card.querySelector('.qty-badge');
+        if (badge) {
+          const item = cart.find(it => it.id === id);
+          badge.textContent = item ? `Qty: ${item.qty}` : '';
+        }
+      }
     }
 
     function openModal(imgElement) {

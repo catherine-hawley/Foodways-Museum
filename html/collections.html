@@ -13,9 +13,13 @@
       padding: 15px 0;
     }
 
+.dark-text {
+  color: #8B6F47;
+}
+
     .collection-item {
       display: flex;
-      background-color: green;
+      background-color: #4A7C59;
       flex-direction: row;
       align-items: flex-start;
       gap: 2rem;
@@ -28,6 +32,7 @@
       width: 300px;
       height: auto;
       object-fit: cover;
+      margin: auto;
       border-radius: 8px;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
     }
@@ -62,15 +67,13 @@
     }
   </style>
 </head>
-
 <body>
   <header>
-    <h1>Museum of Northwest Foodways</h1>
+    <h1>Collections</h1>
     <nav>
-      <button onclick="location.href='index.html'">Home</button>
-      <button onclick="location.href='staff.html'">Staff</button>
-      <button onclick="location.href='collections.html'">Collections</button>
-      <button onclick="location.href='admin.html'">Login</button>
+      <button onclick="location.href='../index.html'">Home</button>
+     <button onclick="location.href='../html/staff.html'" class="button">Staff</button>
+       <button onclick="location.href='../html/shop.html'" class="button">Shop</button>
     </nav>
  
 
@@ -84,7 +87,7 @@
   <main>
     <section id="archaeology" class="collection-section">
 
-      <h2>Composite Halibut Hooks</h2>
+      <h2 class = "dark-text">Composite Halibut Hooks</h2>
       <div class="collection-item">
         <img src="../images/collections/artifact1.jpg" style="width:250px;" alt="Composite Halibut Hooks" class="artifact-img" />
       
@@ -113,7 +116,7 @@
         </div>
       </div>
 
-      <h2>Clamshell Scrapers</h2>
+     <h2 class = "dark-text">Clamshell Scrapers</h2>
       <div class="collection-item">
         <img src="../images/collections/artifact2.jpg" style="width:250px;" alt="Clamshell Scrapers" class="artifact-img" />
       
@@ -142,7 +145,7 @@
         </div>
       </div>
 
-      <h2>Bentwood Storage Box</h2>
+      <h2 class="dark-text">Bentwood Storage Box</h2>
       <div class="collection-item">
         <img src="../images/collections/artifact3.jpg" style="width:250px;" alt="Bentwood Storage Box" class="artifact-img" />
       
@@ -175,9 +178,9 @@
 
     <section id="anthropology" class="collection-section" style="display:none;">
       
-      <h2>Community Cookbook Collection</h2>
+      <h2 class="dark-text">Community Cookbook Collection</h2>
       <div class="collection-item">
-        <img src="../images/collections/artifact4.jpg" style="width:250px;" alt="Stack of cookbooks" class="artifact-img" />
+        <img src="../images/collections/artifact5.jpg" style="width:250px;" alt="Stack of cookbooks" class="artifact-img" />
       
         <div class="artifact-details">
           <div class="field-group">
@@ -192,13 +195,13 @@
 
           <div class="field-group">
             <h3>Use and Function</h3>
-            <p><strong>Likely Purpose:</strong> Daily preparation of pho broth requiring 12-24 hours of simmering beef bones, star anise, cinnamon, ginger, and aromatics</p>
-            <p><strong>Evidence of Use:</strong> Distinctive burnished interior pattern from decades of stirring and skimming, heat marks on base indicating fixed burner position, patina from years of use, estimated 50,000+ bowls of pho produced</p>
+            <p><strong>Likely Purpose:</strong> Fundraising for churches and community groups, sharing recipes within immigrant and ethnic communities, preserving cultural food traditions, teaching American cooking to newer immigrants, building community bonds</p>
+            <p><strong>Evidence of Use:</strong> Handwritten margin notes with ingredient substitutions, grease stains and flour marks on popular recipes, recipe additions tucked into pages, dried ingredient smudges, names and phone numbers of recipe contributors annotated with notes like "ask her about the dumplings"</p>
           </div>
         
           <div class="field-group">
             <h3>Cultural Context</h3>
-            <p><strong>Symbolism:</strong> Represents culinary tradition passed through generations in Vietnam, community gathering space for Vietnamese refugees, bridge between heritage and American life</p>
+            <p><strong>Symbolism:</strong> Cookbooks represent intersection of cultural preservation and assimilation - traditional ethnic recipes appear alongside "American" dishes showing negotiation of identity, fundraising aspect shows how food brought communities together for common goals, handwritten notes and modifications show living documents passed between generations</p>
             <p><strong>Cataloged by:</strong> Dr. Marcus Thompson, Curator of Contemporary Foodways</p>
         </div>
           </div>
@@ -206,9 +209,9 @@
       </div>
 
 
- <h2>Vietnamese Pho Pot</h2>
+ <h2 class = "dark-text">Vietnamese Pho Pot</h2>
       <div class="collection-item">
-        <img src="../images/collections/artifact5.jpg" style="width:250px;" alt="Large aluminum cooking pot showing signs of frequent use" class="artifact-img" />
+        <img src="../images/collections/artifact4.jpg" style="width:250px;" alt="Large aluminum cooking pot showing signs of frequent use" class="artifact-img" />
       
         <div class="artifact-details">
           <div class="field-group">
@@ -222,20 +225,20 @@
 
           <div class="field-group">
             <h3>Use and Function</h3>
-            <p><strong>Likely Purpose:</strong> Fundraising for churches and community groups, sharing recipes within immigrant and ethnic communities, preserving cultural food traditions, teaching American cooking to newer immigrants, building community bonds</p>
-            <p><strong>Evidence of Use:</strong> Handwritten margin notes with ingredient substitutions, grease stains and flour marks on popular recipes, recipe additions tucked into pages, dried ingredient smudges, names and phone numbers of recipe contributors annotated with notes like "ask her about the dumplings"</p>
+            <p><strong>Likely Purpose:</strong> Daily preparation of pho broth requiring 12-24 hours of simmering beef bones, star anise, cinnamon, ginger, and aromatics</p>
+            <p><strong>Evidence of Use:</strong> Distinctive burnished interior pattern from decades of stirring and skimming, heat marks on base indicating fixed burner position, patina from years of use, estimated 50,000+ bowls of pho produced</p>
           </div>
         
           <div class="field-group">
             <h3>Cultural Context</h3>
-            <p><strong>Symbolism:</strong> Cookbooks represent intersection of cultural preservation and assimilation - traditional ethnic recipes appear alongside "American" dishes showing negotiation of identity, fundraising aspect shows how food brought communities together for common goals, handwritten notes and modifications show living documents passed between generations</p>
+            <p><strong>Symbolism:</strong> Represents culinary tradition passed through generations in Vietnam, community gathering space for Vietnamese refugees, bridge between heritage and American life</p>
             <p><strong>Cataloged by:</strong> Dr. Marcus Thompson, Curator of Contemporary Foodways</p>
           </div>
         </div>
       </div>
       
 
-      <h2>Hop Picking Basket</h2>
+      <h2 class = "dark-text">Hop Picking Basket</h2>
       <div class="collection-item">
         <img src="../images/collections/artifact6.jpg" style="width:250px;" alt="Hop Picking Basket" class="artifact-img" />
 
