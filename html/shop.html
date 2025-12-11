@@ -254,7 +254,7 @@ img {
 </div>
  
 <!-- Main modal container -->
-<div class="modal" id="modal" style="display:none" role="dialog" aria-modal="true">
+<div class="modal" id="modal" style="display:none">
   <div class="modal-content">
     <button class="close-modal" aria-label="Close modal">&times;</button>
     <div id="modal-body"></div>
@@ -299,57 +299,34 @@ img {
   }
 
   // Modal functionality
-  (function() {
+  // Modal JS
+  (function(){
     const modal = document.getElementById('modal');
     const modalBody = document.getElementById('modal-body');
     const closeBtn = modal.querySelector('.close-modal');
     let lastTrigger = null;
 
-    document.addEventListener('click', (e) => {
+    function openFrom(selector, trigger){
+      const src = document.querySelector(selector);
+      if (!src) { console.warn('Missing modal content:', selector); return; }
+      modalBody.innerHTML = src.innerHTML;
+      modal.style.display = 'block';
+      lastTrigger = trigger || null;
+    }
+
+    function closeModal(){
+      modal.style.display = 'none';
+      modalBody.innerHTML = '';
+    }
+
+    document.addEventListener('click', (e)=>{
       const trigger = e.target.closest('[data-modal-target]');
-      if (trigger) {
+      if (trigger){
         e.preventDefault();
-
-        // Get the hidden modal content
-        const modalItem = document.querySelector(trigger.dataset.modalTarget);
-        if (!modalItem) return;
-
-        // Remove 'hidden' and move it into modal-body
-        modalItem.removeAttribute('hidden');
-        modalBody.innerHTML = '';
-        modalBody.appendChild(modalItem);
-
-        // Show modal
-        modal.style.display = 'block';
-        lastTrigger = trigger;
-        closeBtn.focus();
-        document.body.style.overflow = 'hidden';
+        openFrom(trigger.getAttribute('data-modal-target'), trigger);
         return;
       }
-
-      // Close modal if clicked outside content or on close button
-      if (e.target === modal || e.target.closest('.close-modal')) {
-        if (modalBody.firstChild) {
-          modalBody.firstChild.setAttribute('hidden', ''); // restore hidden
-          document.body.appendChild(modalBody.firstChild); // put it back
-        }
-        modal.style.display = 'none';
-        document.body.style.overflow = '';
-        if (lastTrigger) lastTrigger.focus();
-      }
-    });
-
-    // Close modal on Escape key
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && modal.style.display === 'block') {
-        if (modalBody.firstChild) {
-          modalBody.firstChild.setAttribute('hidden', '');
-          document.body.appendChild(modalBody.firstChild);
-        }
-        modal.style.display = 'none';
-        document.body.style.overflow = '';
-        if (lastTrigger) lastTrigger.focus();
-      }
+      if (e.target === closeBtn) closeModal();
     });
   })();
 </script>
@@ -359,6 +336,7 @@ img {
 </body>
 
 </html>
+
 
 
 
