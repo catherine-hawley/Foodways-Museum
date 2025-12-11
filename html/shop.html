@@ -311,9 +311,10 @@ img {
   </div>
 </div>
 <script>
-  // Cart functionality (same as previous version)
+ //this key links the shop to the cart
   const CART_KEY = 'museumCartV1';
 
+ // This function reads the Cart information and write it to JSON  
   function readCart() {
     try { return JSON.parse(localStorage.getItem(CART_KEY)) || []; }
     catch { return []; }
@@ -322,13 +323,14 @@ img {
   function writeCart(cart) {
     localStorage.setItem(CART_KEY, JSON.stringify(cart));
   }
-
+/*This function is called by the addToCart button the first part reads the dataset contined in the buttons and asssigns the values to variables */
   function addToCart(btn) {
     const id = btn.dataset.id;
     const name = btn.dataset.name;
     const unitPrice = Number(btn.dataset.price);
     const image = btn.dataset.image;
 
+   /* This part puts all of the individual items and puts them into an object called cart and writes it to LocalStorage   */
     let cart = readCart();
     const idx = cart.findIndex(it => it.id === id);
     if (idx >= 0) {
@@ -338,7 +340,8 @@ img {
     }
     writeCart(cart);
 
-    const card = btn.closest('.souvenir-item');
+  // Update the item card's qty badge
+   const card = btn.closest('.souvenir-item');
     if (card) {
       const badge = card.querySelector('.qty-badge');
       if (badge) {
@@ -386,6 +389,7 @@ img {
 </body>
 
 </html>
+
 
 
 
