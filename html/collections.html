@@ -35,6 +35,7 @@
       margin: auto;
       border-radius: 8px;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
     }
 
    .field-group {
@@ -55,8 +56,8 @@
 .artifact-details {
   display: flex;
   flex-direction: row;
-  gap: 2rem; /* optional: adds spacing between columns */
-  flex-wrap: wrap; /* optional: allows wrapping on smaller screens */
+  gap: 2rem;
+  flex-wrap: wrap;
 }
 
     .artifact-details h2 {
@@ -64,6 +65,92 @@
       margin-top: 0;
       font-size: 1.8rem;
       flex-basis: 100%;
+    }
+
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      min-height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .modal-content {
+      background-color: #F5F3EE;
+      color: #222222;
+      padding: 25px 30px;
+      border-radius: 10px;
+      max-width: 700px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      font-family: 'Helvetica', 'Arial', sans-serif;
+      line-height: 1.6;
+      position: relative;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #30336b;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 10;
+      line-height: 1;
+      padding: 0;
+      width: 30px;
+      height: 30px;
+    }
+
+    .close-modal:hover {
+      color: #130f40;
+    }
+
+    #modal-body h2 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: #30336b;
+    }
+
+    #modal-body h3 {
+      font-size: 1.2rem;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      color: #4A7C59;
+    }
+
+    #modal-body p {
+      font-size: 1rem;
+      margin-bottom: 12px;
+      color: #222222;
+    }
+
+    @media (max-width: 650px) {
+      .modal-content {
+        padding: 20px;
+        max-width: 90%;
+      }
+
+      #modal-body h2 {
+        font-size: 1.3rem;
+      }
+
+      #modal-body p {
+        font-size: 0.95rem;
+      }
     }
   </style>
 </head>
@@ -89,7 +176,11 @@
 
       <h2 class = "dark-text">Composite Halibut Hooks</h2>
       <div class="collection-item">
-        <img src="../images/collections/artifact1.jpg" style="width:250px;" alt="Composite Halibut Hooks" class="artifact-img" />
+        <img src="../images/collections/artifact1.jpg" 
+             style="width:250px;" 
+             alt="Composite Halibut Hooks" 
+             class="artifact-img open-modal" 
+             data-modal-target="#modal-halibut-hooks" />
       
         <div class="artifact-details">
           <div class="field-group col">
@@ -118,7 +209,11 @@
 
      <h2 class = "dark-text">Clamshell Scrapers</h2>
       <div class="collection-item">
-        <img src="../images/collections/artifact2.jpg" style="width:250px;" alt="Clamshell Scrapers" class="artifact-img" />
+        <img src="../images/collections/artifact2.jpg" 
+             style="width:250px;" 
+             alt="Clamshell Scrapers" 
+             class="artifact-img open-modal" 
+             data-modal-target="#modal-clamshell-scrapers" />
       
         <div class="artifact-details">
           <div class="field-group">
@@ -147,7 +242,11 @@
 
       <h2 class="dark-text">Bentwood Storage Box</h2>
       <div class="collection-item">
-        <img src="../images/collections/artifact3.jpg" style="width:250px;" alt="Bentwood Storage Box" class="artifact-img" />
+        <img src="../images/collections/artifact3.jpg" 
+             style="width:250px;" 
+             alt="Bentwood Storage Box" 
+             class="artifact-img open-modal" 
+             data-modal-target="#modal-bentwood-box" />
       
         <div class="artifact-details">
           <div class="field-group">
@@ -180,7 +279,11 @@
       
       <h2 class="dark-text">Community Cookbook Collection</h2>
       <div class="collection-item">
-        <img src="../images/collections/artifact5.jpg" style="width:250px;" alt="Stack of cookbooks" class="artifact-img" />
+        <img src="../images/collections/artifact5.jpg" 
+             style="width:250px;" 
+             alt="Stack of cookbooks" 
+             class="artifact-img open-modal" 
+             data-modal-target="#modal-cookbook-collection" />
       
         <div class="artifact-details">
           <div class="field-group">
@@ -211,7 +314,11 @@
 
  <h2 class = "dark-text">Vietnamese Pho Pot</h2>
       <div class="collection-item">
-        <img src="../images/collections/artifact4.jpg" style="width:250px;" alt="Large aluminum cooking pot showing signs of frequent use" class="artifact-img" />
+        <img src="../images/collections/artifact4.jpg" 
+             style="width:250px;" 
+             alt="Large aluminum cooking pot showing signs of frequent use" 
+             class="artifact-img open-modal" 
+             data-modal-target="#modal-pho-pot" />
       
         <div class="artifact-details">
           <div class="field-group">
@@ -240,7 +347,11 @@
 
       <h2 class = "dark-text">Hop Picking Basket</h2>
       <div class="collection-item">
-        <img src="../images/collections/artifact6.jpg" style="width:250px;" alt="Hop Picking Basket" class="artifact-img" />
+        <img src="../images/collections/artifact6.jpg" 
+             style="width:250px;" 
+             alt="Hop Picking Basket" 
+             class="artifact-img open-modal" 
+             data-modal-target="#modal-hop-basket" />
 
         <div class="artifact-details">
           <div class="field-group">
@@ -278,13 +389,92 @@
     </section>
   </main>
 
-  <script>
-    function showSection(section) {
-      const sections = document.querySelectorAll('.collection-section');
-      sections.forEach(s => s.style.display = 'none');
-      document.getElementById(section).style.display = 'block';
-    }
-  </script>
-</body>
-</html>
+  <!-- Modal Content (hidden) -->
+  <div class="modal-item" id="modal-halibut-hooks" hidden>
+    <h2>Composite Halibut Hooks — Extended Details</h2>
+    <p>These composite halibut hooks represent one of the most sophisticated fishing technologies developed by Pacific Northwest Coast peoples. Dating to the mid-first millennium CE, they exemplify the deep maritime knowledge and engineering skill of Coast Salish communities who harvested halibut from cold, deep waters.</p>
+    
+    <h3>Construction and Materials</h3>
+    <p>Each hook is a marvel of composite construction. The main shank was carved from western red cedar, chosen for its workability, water resistance, and spiritual significance. The barb, the critical element for securing large halibut, was crafted from deer antler—dense, strong, and capable of maintaining a sharp point even under pressure. The two components were bound together with spruce root cordage, which when wet would swell and tighten, creating an almost unbreakable bond.</p>
+    
+    <h3>Fishing Technique</h3>
+    <p>Halibut fishing required remarkable knowledge of ocean depths, currents, and fish behavior. Hooks were deployed on lines weighted with stones, lowered 50 to over 200 meters to the seafloor where halibut feed. The J-shape design was biomechanically optimized—when a halibut took the bait, the hook would rotate and lodge firmly. The angled barb prevented the fish from escaping during the long, careful haul to the surface.</p>
+    
+    <h3>Cultural Significance</h3>
+    <p>In Coast Salish cosmology, the ocean was a realm of powerful spirits. Successful fishing required not just technical skill but spiritual preparation and respect. Hooks were sometimes decorated with symbolic designs or blessed in ceremonies. A fisherman's hooks were personal items, often passed down through families, accumulating power and luck with successful catches. The hook symbolized the relationship between humans and the sea—a partnership requiring knowledge, respect, and reciprocity.</p>
+  </div>
 
+  <div class="modal-item" id="modal-clamshell-scrapers" hidden>
+    <h2>Clamshell Scrapers — Extended Details</h2>
+    <p>These clamshell scrapers, dating from approximately 890-1050 CE, demonstrate the resourcefulness and ingenuity of Pacific Northwest Coast peoples in creating tools from locally available materials. Found in a midden deposit—essentially an ancient refuse heap rich with shells, bones, and artifacts—these tools offer insights into daily life and food processing practices.</p>
+    
+    <h3>Material Properties and Selection</h3>
+    <p>Pacific littleneck clam shells (Leukoma staminea) were ideal for tool-making. The shells are hard enough to hold an edge but not so brittle that they shatter easily. Their natural curve fits comfortably in the hand, and the growth patterns create natural grip surfaces. The outer surface is naturally smooth, while the inner surface can be worked to create a sharp edge.</p>
+    
+    <h3>Manufacturing and Modification</h3>
+    <p>Tool-makers would select larger shells from meals or shell middens. The working edge was created through careful grinding and flaking, producing a sharp, slightly serrated edge perfect for cutting and scraping. Some scrapers show evidence of hafting—attachment to wooden handles using plant-based adhesives like tree pitch. This modification extended the tool's reach and protected the user's hands during extended work sessions.</p>
+    
+    <h3>Evidence of Use</h3>
+    <p>Under microscopic examination, these scrapers reveal their work history. The characteristic polish along edges comes from repeated contact with soft organic materials—fish skin, animal hides, or plant fibers. Two specimens retained microscopic fish scale fragments, confirming their use in fish processing. The variety of wear patterns suggests these were multi-purpose tools, adapted to whatever task was at hand.</p>
+    
+    <h3>Archaeological Context</h3>
+    <p>The midden context is significant. Middens weren't just garbage dumps—they were managed spaces where shells and organic materials accumulated, creating nutrient-rich soil. Finding finished tools alongside food waste illustrates the integrated nature of resource use: clams provided both nutrition and the raw materials for tools needed to process other resources.</p>
+  </div>
+
+  <div class="modal-item" id="modal-bentwood-box" hidden>
+    <h2>Bentwood Storage Box — Extended Details</h2>
+    <p>This bentwood box, dating from circa 1880-1910, represents the pinnacle of Pacific Northwest woodworking tradition. Created through a sophisticated steaming and bending process passed down through generations, bentwood boxes were among the most valued possessions in Coast Salish households.</p>
+    
+    <h3>Manufacturing Process</h3>
+    <p>Creating a bentwood box required exceptional skill and patience. A single long plank of western red cedar was carefully split from a log, ensuring straight, clear grain. The plank was then scored at three points where corners would form. Through controlled steaming over hot rocks and water, the wood became pliable enough to bend without breaking. The artisan would fold the plank into a rectangular form, joining the final corner with precise mortise-and-tenon joinery or cedar root lashing. The base was fitted separately, and a lid carved to match.</p>
+    
+    <h3>Decorative Elements</h3>
+    <p>The box features painted formline designs characteristic of Coast Salish art—flowing, continuous lines that transform into recognizable creatures when you learn to read the visual language. The salmon depicted on this box is rendered in the traditional style with ovoid shapes, U-forms, and split-representation techniques. Red and black pigments, traditionally derived from ochre and charcoal, create the bold contrast typical of the region's art.</p>
+    
+    <h3>Functional Uses</h3>
+    <p>These boxes were remarkably versatile. Their tight-fitting construction made them nearly waterproof, perfect for storing valuable eulachon oil—the "grease" that was a staple food and trade commodity. The boxes also preserved dried foods like salmon, berries, and camas bulbs, protecting them from moisture and pests. Some boxes stored ceremonial regalia—masks, blankets, and other items used in potlatch ceremonies. Remarkably, boxes could even be used for cooking: water, food, and red-hot stones were placed inside, bringing the water to a boil without burning the cedar.</p>
+    
+    <h3>Cultural and Economic Value</h3>
+    <p>Bentwood boxes were significant wealth items. The time, skill, and materials required made them valuable trade goods. At potlatch ceremonies—the great gift-giving feasts central to Coast Salish society—boxes were important gifts that demonstrated the host's wealth and generosity. Receiving a box was both an honor and a responsibility, creating social bonds and obligations between families and communities.</p>
+  </div>
+
+  <div class="modal-item" id="modal-cookbook-collection" hidden>
+    <h2>Community Cookbook Collection — Extended Details</h2>
+    <p>This collection of community cookbooks from 1948-1978 captures a transformative period in American social history through the lens of food. Created by churches, schools, PTAs, and civic organizations across the Seattle area, these spiral-bound volumes are far more than recipe collections—they're documents of community identity, cultural negotiation, and social change.</p>
+    
+    <h3>Historical Context</h3>
+    <p>The post-World War II decades saw massive demographic shifts in the Pacific Northwest. New immigrant communities established themselves, wartime restrictions were lifted, and suburban expansion created new neighborhoods seeking to build community ties. Community cookbooks emerged as perfect vehicles for multiple purposes: raising funds for local causes, welcoming newcomers, sharing cultural traditions, and creating social bonds.</p>
+    
+    <h3>Cultural Intersection</h3>
+    <p>Flipping through these cookbooks reveals fascinating cultural dynamics. A Japanese American community cookbook from 1952 includes both traditional dishes like nishime and teriyaki alongside "American" recipes for Jell-O salads and casseroles—reflecting both pride in heritage and efforts to demonstrate mainstream American identity in the aftermath of wartime internment. A 1965 church cookbook features Norwegian lutefisk recipes next to Southern fried chicken, documenting the diverse backgrounds of congregation members.</p>
+    
+    <h3>Evidence of Use</h3>
+    <p>The most poignant aspects are the signs of actual use. Handwritten margin notes reveal home cooks' adaptations: "use less sugar," "my mom added ginger," "great for potluck!" Grease stains and flour fingerprints mark the most popular recipes. Loose recipe cards tucked between pages show recipes being shared and exchanged—the cookbooks became hubs for ongoing culinary conversation. Names and phone numbers of recipe contributors sometimes carry additional notes: "Ask Mrs. Wong about the dumplings" or "Her spring rolls are even better."</p>
+    
+    <h3>Fundraising and Community Building</h3>
+    <p>These cookbooks were typically sold for $1-3, with proceeds supporting church building funds, school equipment, or community programs. The fundraising model required community participation at every level—recipe contribution, volunteer typing and assembly, door-to-door sales. The process itself strengthened community bonds, giving everyone a stake in the project's success.</p>
+    
+    <h3>Living Documents</h3>
+    <p>Unlike published commercial cookbooks, these community volumes were living documents. Owners modified recipes based on experience, added their own favorites, and passed them to daughters and friends. They represent not fixed texts but ongoing conversations about food, identity, and community across generations.</p>
+  </div>
+
+  <div class="modal-item" id="modal-pho-pot" hidden>
+    <h2>Vietnamese Pho Pot — Extended Details</h2>
+    <p>This 38-liter aluminum stockpot, used from approximately 1982 until its retirement in 2019, produced an estimated 50,000+ bowls of pho at a family-run restaurant in Seattle's Rainier Valley neighborhood. More than just a cooking vessel, this pot embodies a refugee family's journey, the preservation of culinary tradition, and the creation of community in a new homeland.</p>
+    
+    <h3>The Art of Pho Broth</h3>
+    <p>True pho broth requires time, technique, and patience—qualities this pot facilitated for nearly four decades. Each batch began with beef bones (typically knuckle and leg bones rich in marrow and collagen) roasted to develop depth of flavor. These were then simmered for 12-24 hours with ginger, onions, star anise, cinnamon, coriander seeds, and other aromatics. The extended cooking time extracted every bit of flavor and gelatin, creating the rich, complex, silky broth that defines great pho.</p>
+    
+    <h3>Physical Evidence of Use</h3>
+    <p>The pot's surface tells its story. The exterior shows heat discoloration in a distinctive pattern indicating it sat on the same burner, day after day, year after year. The interior reveals a burnished pattern created by decades of stirring and skimming—the constant removal of impurities that rise to the surface, essential for achieving clear, clean-tasting broth. Mineral deposits from Seattle's water speak to thousands of brewing cycles. Small dents and careful repairs show a pot that was maintained, valued, and kept in service far beyond its expected lifespan.</p>
+    
+    <h3>Cultural and Historical Context</h3>
+    <p>Pho emerged in early 20th-century northern Vietnam, influenced by French colonial presence (the beef, the idea of a long-simmered stock) but thoroughly Vietnamese in execution and flavor. During the Vietnam War and its aftermath, millions fled the country, bringing their culinary traditions with them. In new homes across America, pho restaurants became cultural anchors—places where Vietnamese communities gathered, where traditions were preserved, and where Americans of all backgrounds encountered Vietnamese culture through food.</p>
+    
+    <h3>Community and Memory</h3>
+    <p>For the family who donated this pot, it represented more than a business tool. It was a link to Vietnam, to recipes passed down through generations, to a grandfather's technique for roasting bones and a grandmother's eye for perfect broth clarity. The pot fed not just customers but community—new arrivals from Vietnam finding familiar comfort, mixed families sharing heritage with children, Americans discovering new flavors. Regular customers remember specific days: celebrations, first dates, late nights after work. The pot participated in all these moments, producing the bowls that brought people together.</p>
+  </div>
+
+  <div class="modal-item" id="modal-hop-basket" hidden>
+    <h2>Hop Picking Basket — Extended Details</h2>
+    <p>
