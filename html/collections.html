@@ -477,4 +477,77 @@
 
   <div class="modal-item" id="modal-hop-basket" hidden>
     <h2>Hop Picking Basket — Extended Details</h2>
-    <p>
+    <p>This hop picking basket from the Yakima Valley, dating circa 1935-1945, represents a fascinating intersection of traditional Indigenous craft techniques and commercial agricultural labor. It embodies complex histories of cultural adaptation, economic necessity, and the transformation of the Pacific Northwest landscape.</p>
+    
+    <h3>Hop Agriculture in the Pacific Northwest</h3>
+    <p>Hops, essential for brewing beer, became a major crop in Washington's Yakima Valley beginning in the late 19th century. The valley's climate and soil proved ideal, and by the 1930s-40s, Washington dominated American hop production. Harvest required enormous amounts of manual labor for brief periods—hops had to be picked at precise maturity, creating an annual labor crisis.</p>
+    
+    <h3>Construction and Design</h3>
+    <p>This basket represents traditional Indigenous weaving techniques adapted to commercial agricultural needs. Woven from cedar bark and willow—materials used in Pacific Northwest basketry for millennia—the design prioritizes function. The cone shape allows hops to pile without crushing those at the bottom. The tapered base fits between a picker's feet while working. The reinforced rim withstands the stress of being filled and emptied dozens of times daily. The strap allows hands-free carrying, essential when climbing ladders or moving between rows.</p>
+    
+    <h3>Evidence of Hard Use</h3>
+    <p>Every aspect of this basket speaks to hard labor. Dark staining throughout comes from hop oils and resins—hops are sticky plants, and pickers' hands, clothes, and tools became covered in aromatic residue. Wire repairs show a basket kept in service through breakage, likely because workers owned their tools and couldn't afford frequent replacement. The wear pattern on the strap indicates a right-handed user who carried the basket on their right side for countless hours. Compressed fibers at the base show the weight of repeatedly filled baskets—when full, a basket could weigh 15-20 pounds.</p>
+    
+    <h3>Labor and Community</h3>
+    <p>Hop picking was seasonal work that attracted diverse communities. Indigenous families from across Washington traveled to hop fields, continuing older patterns of seasonal resource gathering but now for wages. Japanese American farmers and workers were prominent until World War II internment devastated their community. Mexican American families traveled north for harvest season. The work was difficult—long days, piece-rate pay (compensation by weight picked), exposure to sun and hop oils that could irritate skin.</p>
+    
+    <h3>Cultural Continuity and Change</h3>
+    <p>This basket embodies cultural continuity under changed circumstances. Traditional weaving knowledge—selecting materials, processing fibers, creating functional forms—was adapted to new economic realities. The basket represents both cultural resilience (maintaining craft traditions) and the economic pressures that pushed Indigenous peoples into wage labor. It connects to longer histories of resource use (cedar and willow gathering, seasonal travel) while documenting the dramatic transformations of the 20th century.</p>
+  </div>
+
+  <!-- Main modal container -->
+  <div class="modal" id="modal" style="display:none">
+    <div class="modal-content">
+      <button class="close-modal" aria-label="Close modal">&times;</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <script>
+    function showSection(section) {
+      const sections = document.querySelectorAll('.collection-section');
+      sections.forEach(s => s.style.display = 'none');
+      document.getElementById(section).style.display = 'block';
+    }
+
+    // Modal functionality
+    (function(){
+      const modal = document.getElementById('modal');
+      const modalBody = document.getElementById('modal-body');
+      const closeBtn = modal.querySelector('.close-modal');
+
+      function openFrom(selector){
+        const src = document.querySelector(selector);
+        if (!src) { 
+          console.warn('Missing modal content:', selector); 
+          return; 
+        }
+        modalBody.innerHTML = src.innerHTML;
+        modal.style.display = 'flex';
+      }
+
+      function closeModal(){
+        modal.style.display = 'none';
+        modalBody.innerHTML = '';
+      }
+
+      document.addEventListener('click', (e)=>{
+        const trigger = e.target.closest('[data-modal-target]');
+        if (trigger){
+          e.preventDefault();
+          openFrom(trigger.getAttribute('data-modal-target'));
+          return;
+        }
+        if (e.target === closeBtn || e.target === modal) {
+          closeModal();
+        }
+      });
+
+      // Close on Escape key
+      document.addEventListener('keydown', (e)=>{
+        if (e.key === 'Escape' && modal.style.display === 'flex'){
+          closeModal();
+        }
+      });
+    })();
+  </script>
