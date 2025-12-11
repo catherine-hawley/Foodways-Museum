@@ -77,10 +77,14 @@
       width: 100%;
       min-height: 100%;
       background-color: rgba(0, 0, 0, 0.6);
-      justify-content: center;
-      align-items: center;
       padding: 20px;
       box-sizing: border-box;
+    }
+    
+    .modal.active {
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .modal-content {
@@ -496,7 +500,7 @@
   </div>
 
   <!-- Main modal container -->
-  <div class="modal" id="modal" style="display:none">
+  <div class="modal" id="modal">
     <div class="modal-content">
       <button class="close-modal" aria-label="Close modal">&times;</button>
       <div id="modal-body"></div>
@@ -523,11 +527,11 @@
           return; 
         }
         modalBody.innerHTML = src.innerHTML;
-        modal.style.display = 'flex';
+        modal.classList.add('active');
       }
 
       function closeModal(){
-        modal.style.display = 'none';
+        modal.classList.remove('active');
         modalBody.innerHTML = '';
       }
 
@@ -545,7 +549,7 @@
 
       // Close on Escape key
       document.addEventListener('keydown', (e)=>{
-        if (e.key === 'Escape' && modal.style.display === 'flex'){
+        if (e.key === 'Escape' && modal.classList.contains('active')){
           closeModal();
         }
       });
