@@ -1,19 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="author" content="Ali Gul">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex, nofollow">
-    <title>Shopping Cart</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cinzel">
-</head>
-<body>
-  <header>
-    <h1>Shopping Cart</h1>
-  </header>
-<style>
+  <meta charset="utf-8">
+  <meta name="author" content="Catherine Hawley">  
+  <meta name="robots" content="noindex, nofollow"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="../css/style.css" rel="stylesheet" type="text/css">
+  <title>Museum Cart</title>
+  <style>
     /* Cart Page Specific Styles */
     body {
       background-color: #f5f3ee;
@@ -83,27 +77,353 @@
       border-bottom: 2px solid #5B8FA3;
       padding-bottom: 10px;
     }
-</style>
+
+    /* Individual Cart Item */
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px;
+      background-color: #ffffff;
+      border: 1px solid #e0e0e0;
+      border-radius: 4px;
+      margin-bottom: 12px;
+      transition: box-shadow 0.2s;
+    }
+
+    .cart-item:hover {
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .cart-item-details {
+      flex: 1;
+      font-family: 'Courier New', monospace;
+      font-size: 1rem;
+      color: #3A4D3E;
+    }
+
+    .cart-item-price {
+      font-weight: bold;
+      color: #30336b;
+      margin-left: 20px;
+      min-width: 80px;
+      text-align: right;
+    }
+
+    .remove-btn {
+      background-color: #dc3545;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-left: 15px;
+      transition: background-color 0.2s;
+    }
+
+    .remove-btn:hover {
+      background-color: #c82333;
+    }
+
+    /* Summary Section */
+    #summary {
+      background-color: #f8f8f8;
+      border: 2px solid #4A7C59;
+      border-radius: 6px;
+      padding: 25px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #3A4D3E;
+      white-space: pre-wrap;
+      margin-bottom: 25px;
+    }
+
+    #summary strong {
+      color: #30336b;
+    }
+
+    /* Actions Section */
+    .actions {
+      display: flex;
+      gap: 15px;
+      justify-content: flex-start;
+      align-items: center;
+      padding-top: 20px;
+      border-top: 2px solid #ddd;
+    }
+
+    #clearBtn {
+      background-color: #8B6F47;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: background-color 0.2s;
+    }
+
+    #clearBtn:hover {
+      background-color: #6d5636;
+    }
+
+    .actions a {
+      background-color: #5B8FA3;
+      color: white;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: background-color 0.2s;
+    }
+
+    .actions a:hover {
+      background-color: #4a7589;
+    }
+
+    /* Page Header */
+    header {
+      background-color: #3A4D3E;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      margin-bottom: 0;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      main {
+        margin: 20px;
+        padding: 20px;
+      }
+
+      .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .cart-item-price {
+        margin-left: 0;
+      }
+
+      .remove-btn {
+        margin-left: 0;
+        width: 100%;
+      }
+
+      .actions {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      #clearBtn,
+      .actions a {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    /* Invoice Total Highlight */
+    .invoice-total {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #30336b;
+      background-color: #e8f4f8;
+      padding: 8px;
+      border-radius: 4px;
+      margin-top: 10px;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Shopping Cart</h1>
+  </header>
+
   <main>
-    <!-- NEW CONTROLS (Cart page only) -->
+    <!-- Member Discount Toggle -->
     <div class="controls">
-      <label><input type="checkbox" id="memberToggle"> Member Discount (15%)</label>
+      <label>
+        <input type="checkbox" id="memberToggle">
+        <span>Museum Member Discount (15%)</span>
+      </label>
     </div>
 
-    <!-- STATES & OUTPUT AREAS -->
-    <div id="emptyMsg" class="empty" hidden>Your cart is empty.</div>
-    <div id="items" hidden></div>
+    <!-- Empty Cart Message -->
+    <div id="emptyMsg" class="empty" hidden>
+      Your cart is empty. Visit our shop to add items!
+    </div>
+
+    <!-- Cart Items -->
+    <div id="items" hidden>
+      <h2>Your Items</h2>
+      <!-- Cart items will be dynamically inserted here -->
+    </div>
+
+    <!-- Order Summary -->
     <pre id="summary" hidden></pre>
 
-    <!-- BASIC ACTIONS -->
+    <!-- Actions -->
     <div class="actions">
       <button id="clearBtn">Clear Cart</button>
-      <a href="souvenir-shop.html">Keep Shopping</a>
+      <a href="shop.html">Continue Shopping</a>
     </div>
   </main>
 
-  <script src="../js/cart.js"></script>
+  <script>
+  /* =================== PIPE FROM shop.html (leave as-is) =================== */
+  const CART_KEY = 'museumCartV1';
 
+  function readCart(){
+    try { return JSON.parse(localStorage.getItem(CART_KEY)) || []; }
+    catch { return []; }
+  }
+  function writeCart(cart){
+    localStorage.setItem(CART_KEY, JSON.stringify(cart));
+  }
+  /* ================= END PIPE ============================================= */
+
+
+  /* ====================== UTILITIES & CONSTANTS =========================== */
+  function money(n){
+    const sign = n < 0 ? -1 : 1;
+    const s = '$' + Math.abs(n).toFixed(2);
+    return sign < 0 ? '('+s+')' : s;
+  }
+
+  const TAX_RATE = 0.102;
+  const MEMBER_DISCOUNT_RATE = 0.15;
+  const SHIPPING_RATE = 25.00;
+  const VOLUME_TIERS = [
+    [0.00, 49.99, 0.00],
+    [50.00, 99.99, 0.05],
+    [100.00, 199.99, 0.10],
+    [200.00, Infinity, 0.15]
+  ];
+
+  function volumeRate(total){
+    for (const [min,max,rate] of VOLUME_TIERS){
+      if (total >= min && total <= max) return rate;
+    }
+    return 0;
+  }
+
+  function removeItem(id){
+    const next = readCart().filter(it => it.id !== id);
+    writeCart(next);
+    render();
+  }
+
+  function clearCart(){
+    writeCart([]);
+    document.getElementById('memberToggle').checked = false;
+    render();
+  }
+  /* ================== END UTILITIES & CONSTANTS =========================== */
+
+
+  /* ====================== RENDER FUNCTION ================================= */
+  function render(){
+    const itemsDiv   = document.getElementById('items');
+    const summaryPre = document.getElementById('summary');
+    const emptyMsg   = document.getElementById('emptyMsg');
+    const isMember   = document.getElementById('memberToggle').checked;
+
+    let cart = readCart().filter(it => it.qty > 0 && it.unitPrice > 0);
+
+    // If cart is empty
+    if (cart.length === 0) {
+      emptyMsg.hidden = false;
+      itemsDiv.hidden = true;
+      summaryPre.hidden = true;
+      return;
+    }
+
+    // Show cart items
+    emptyMsg.hidden = true;
+    itemsDiv.hidden = false;
+    summaryPre.hidden = false;
+
+    // Build items list
+    let itemsHTML = '<h2>Your Items</h2>';
+    let itemTotal = 0;
+
+    cart.forEach(item => {
+      const lineTotal = item.unitPrice * item.qty;
+      itemTotal += lineTotal;
+      
+      itemsHTML += `
+        <div class="cart-item">
+          <div class="cart-item-details">
+            ${item.qty} × ${item.name}
+          </div>
+          <div class="cart-item-price">${money(lineTotal)}</div>
+          <button class="remove-btn" onclick="removeItem('${item.id}')">Remove</button>
+        </div>
+      `;
+    });
+
+    itemsDiv.innerHTML = itemsHTML;
+
+    // Calculate discounts
+    let memberDiscount = 0;
+    let volumeDiscount = 0;
+    const volRate = volumeRate(itemTotal);
+
+    // Single discount rule
+    if (isMember && volRate > 0) {
+      const choice = prompt("Only one discount may be applied. Type 'M' for Member or 'V' for Volume:");
+      if (choice && choice.toUpperCase() === 'M') {
+        memberDiscount = itemTotal * MEMBER_DISCOUNT_RATE;
+      } else if (choice && choice.toUpperCase() === 'V') {
+        volumeDiscount = itemTotal * volRate;
+      }
+    } else if (isMember) {
+      memberDiscount = itemTotal * MEMBER_DISCOUNT_RATE;
+    } else if (volRate > 0) {
+      volumeDiscount = itemTotal * volRate;
+    }
+
+    // Calculate totals
+    const subtaxable = itemTotal - memberDiscount - volumeDiscount + SHIPPING_RATE;
+    const taxAmount = subtaxable * TAX_RATE;
+    const invoiceTotal = subtaxable + taxAmount;
+
+    // Build summary
+    summaryPre.textContent = 
+`ORDER SUMMARY
+─────────────────────────────────────────
+Subtotal of Items:        ${money(itemTotal)}
+Volume Discount:          ${money(-volumeDiscount)}
+Member Discount:          ${money(-memberDiscount)}
+Shipping:                 ${money(SHIPPING_RATE)}
+─────────────────────────────────────────
+Subtotal (Taxable):       ${money(subtaxable)}
+
+Tax Rate:                 ${(TAX_RATE * 100).toFixed(1)}%
+Tax Amount:               ${money(taxAmount)}
+─────────────────────────────────────────
+INVOICE TOTAL:            ${money(invoiceTotal)}
+─────────────────────────────────────────`;
+  }
+
+  // Events → re-render
+  document.getElementById('memberToggle').addEventListener('change', render);
+  document.getElementById('clearBtn').addEventListener('click', clearCart);
+
+  // First paint
+  render();
+  </script>
 </body>
 </html>
-
