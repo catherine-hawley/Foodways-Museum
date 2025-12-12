@@ -168,9 +168,13 @@ button:hover {
   flex-basis: 100%;
 
   /* Footer */
-  .footer {
-    text-align: center;
-    font-size: 0.9em;
-    color: #7A9B76;
-    opacity: 0.8;
-  }
+.footer {
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 0.9rem;
+  color: #ffffff;
+  background-color: #3A4D3E;
+  border-radius: 10px;
+  margin-top: 2rem;
+}
+
