@@ -88,36 +88,8 @@ function showSection(section) {
     }
   }
 
-  // Modal functionality
-  // Modal JS
-  (function(){
-    const modal = document.getElementById('modal');
-    const modalBody = document.getElementById('modal-body');
-    const closeBtn = modal.querySelector('.close-modal');
-    let lastTrigger = null;
+  
 
-    function openFrom(selector, trigger){
-      const src = document.querySelector(selector);
-      if (!src) { console.warn('Missing modal content:', selector); return; }
-      modalBody.innerHTML = src.innerHTML;
-      modal.style.display = 'block';
-      lastTrigger = trigger || null;
-    }
-
-    function closeModal(){
-      modal.style.display = 'none';
-      modalBody.innerHTML = '';
-    }
-
-    document.addEventListener('click', (e)=>{
-      const trigger = e.target.closest('[data-modal-target]');
-      if (trigger){
-        e.preventDefault();
-        openFrom(trigger.getAttribute('data-modal-target'), trigger);
-        return;
-      }
-      if (e.target === closeBtn) closeModal();
-    });
  /* =================== CART FUNCTIONS =================== */
   const CART_KEY = 'museumCartV1';
 
@@ -246,8 +218,8 @@ Invoice Total:            ${money(invoiceTotal)}`;
   document.getElementById('clearBtn').addEventListener('click', clearCart);
 
 
-  render();
-   }
+ render();
+})();
 
 
 
