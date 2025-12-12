@@ -33,7 +33,7 @@ header {
 /* Container for text */
 .container {
   display: flex;
-  /* grid: auto auto / auto auto auto auto;  */
+  padding-top: 50px;
   background-color: #2f4f4f;
   flex-direction: column;
   padding: 30px;
