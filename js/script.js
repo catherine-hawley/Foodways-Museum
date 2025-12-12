@@ -60,14 +60,14 @@ function showSection(section) {
   function writeCart(cart) {
     localStorage.setItem(CART_KEY, JSON.stringify(cart));
   }
-/*This function is called by the addToCart button the first part reads the dataset contined in the buttons and asssigns the values to variables */
+//This function is called by the addToCart button the first part reads the dataset contined in the buttons and asssigns the values to variables */
   function addToCart(btn) {
     const id = btn.dataset.id;
     const name = btn.dataset.name;
     const unitPrice = Number(btn.dataset.price);
     const image = btn.dataset.image;
 
-   /* This part puts all of the individual items and puts them into an object called cart and writes it to LocalStorage   */
+   // This part puts all of the individual items and puts them into an object called cart and writes it to LocalStorage   */
     let cart = readCart();
     const idx = cart.findIndex(it => it.id === id);
     if (idx >= 0) {
@@ -89,18 +89,6 @@ function showSection(section) {
   }
 
   
-
- /* =================== CART FUNCTIONS =================== */
-  const CART_KEY = 'museumCartV1';
-
-  function readCart(){
-    try { return JSON.parse(localStorage.getItem(CART_KEY)) || []; }
-    catch { return []; }
-  }
-  
-  function writeCart(cart){
-    localStorage.setItem(CART_KEY, JSON.stringify(cart));
-  }
 
   function money(n){
     const sign = n < 0 ? -1 : 1;
@@ -137,7 +125,7 @@ function showSection(section) {
     render();
   }
 
-  /* ====================== RENDER FUNCTION ================================= */
+  /* Render Function */
   function render(){
     const itemsDiv   = document.getElementById('items');
     const summaryPre = document.getElementById('summary');
@@ -219,7 +207,7 @@ Invoice Total:            ${money(invoiceTotal)}`;
 
 
  render();
-})();
+
 
 
 
