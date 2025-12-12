@@ -295,7 +295,7 @@ img {
 
 <div class="modal-item" id="modal-text-smoked-salmon" hidden>
   <h2>Smoked Salmon — Details</h2>
-  <p>Tur Smoked Salmon is prepared using traditional alder-smoking techniques employed by Pacific Northwest Indigenous communities. The fish is sourced seasonally from sustainably managed rivers and coasts, ensuring the highest quality and environmental responsibility. Alder wood imparts a subtle, earthy sweetness, highlighting the natural flavors of the salmon without overpowering it. Each fillet is carefully cured and smoked, producing a tender, flaky texture with rich, smoky undertones. Smoked Salmon has been a vital source of nutrition and cultural identity for regional tribes, traditionally consumed fresh, smoked, or preserved for winter months. Beyond its culinary excellence, our salmon supports local Indigenous fisheries, helping to sustain both community livelihoods and cultural practices. Enjoy it as part of a simple snack, a festive entrée, or incorporated into traditional dishes. With every bite, you experience a connection to the land, the water, and the generations of care that preserve this extraordinary Pacific Northwest resource.</p>
+  <p>Our Smoked Salmon is prepared using traditional alder-smoking techniques employed by Pacific Northwest Indigenous communities. The fish is sourced seasonally from sustainably managed rivers and coasts, ensuring the highest quality and environmental responsibility. Alder wood imparts a subtle, earthy sweetness, highlighting the natural flavors of the salmon without overpowering it. Each fillet is carefully cured and smoked, producing a tender, flaky texture with rich, smoky undertones. Smoked Salmon has been a vital source of nutrition and cultural identity for regional tribes, traditionally consumed fresh, smoked, or preserved for winter months. Beyond its culinary excellence, our salmon supports local Indigenous fisheries, helping to sustain both community livelihoods and cultural practices. Enjoy it as part of a simple snack, a festive entrée, or incorporated into traditional dishes. With every bite, you experience a connection to the land, the water, and the generations of care that preserve this extraordinary Pacific Northwest resource.</p>
 </div>
 
  <div class="modal-item" id="modal-text-native-seed-packet" hidden>
@@ -310,85 +310,15 @@ img {
     <div id="modal-body"></div>
   </div>
 </div>
-<script>
- //this key links the shop to the cart
-  const CART_KEY = 'museumCartV1';
 
- // This function reads the Cart information and write it to JSON  
-  function readCart() {
-    try { return JSON.parse(localStorage.getItem(CART_KEY)) || []; }
-    catch { return []; }
-  }
 
-  function writeCart(cart) {
-    localStorage.setItem(CART_KEY, JSON.stringify(cart));
-  }
-/*This function is called by the addToCart button the first part reads the dataset contined in the buttons and asssigns the values to variables */
-  function addToCart(btn) {
-    const id = btn.dataset.id;
-    const name = btn.dataset.name;
-    const unitPrice = Number(btn.dataset.price);
-    const image = btn.dataset.image;
-
-   /* This part puts all of the individual items and puts them into an object called cart and writes it to LocalStorage   */
-    let cart = readCart();
-    const idx = cart.findIndex(it => it.id === id);
-    if (idx >= 0) {
-      cart[idx].qty += 1;
-    } else {
-      cart.push({ id, name, unitPrice, qty: 1, image });
-    }
-    writeCart(cart);
-
-  // Update the item card's qty badge
-   const card = btn.closest('.souvenir-item');
-    if (card) {
-      const badge = card.querySelector('.qty-badge');
-      if (badge) {
-        const item = cart.find(it => it.id === id);
-        badge.textContent = item ? `Qty: ${item.qty}` : '';
-      }
-    }
-  }
-
-  // Modal functionality
-  // Modal JS
-  (function(){
-    const modal = document.getElementById('modal');
-    const modalBody = document.getElementById('modal-body');
-    const closeBtn = modal.querySelector('.close-modal');
-    let lastTrigger = null;
-
-    function openFrom(selector, trigger){
-      const src = document.querySelector(selector);
-      if (!src) { console.warn('Missing modal content:', selector); return; }
-      modalBody.innerHTML = src.innerHTML;
-      modal.style.display = 'block';
-      lastTrigger = trigger || null;
-    }
-
-    function closeModal(){
-      modal.style.display = 'none';
-      modalBody.innerHTML = '';
-    }
-
-    document.addEventListener('click', (e)=>{
-      const trigger = e.target.closest('[data-modal-target]');
-      if (trigger){
-        e.preventDefault();
-        openFrom(trigger.getAttribute('data-modal-target'), trigger);
-        return;
-      }
-      if (e.target === closeBtn) closeModal();
-    });
-  })();
-</script>
-
+  <script src="../js/script.js"></script>
 
  
 </body>
 
 </html>
+
 
 
 
