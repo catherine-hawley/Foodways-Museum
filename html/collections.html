@@ -840,54 +840,12 @@
     </div>
   </div>
 
-  <script>
-    function showSection(section) {
-      const sections = document.querySelectorAll('.collection-section');
-      sections.forEach(s => s.style.display = 'none');
-      document.getElementById(section).style.display = 'block';
-    }
+  <!--<script>-->
+      <script src="../js/script.js"></script>
+</body>
+</html>
 
-    // Modal functionality
-    (function(){
-      const modal = document.getElementById('modal');
-      const modalBody = document.getElementById('modal-body');
-      const closeBtn = modal.querySelector('.close-modal');
 
-      function openFrom(selector){
-        const src = document.querySelector(selector);
-        if (!src) { 
-          console.warn('Missing modal content:', selector); 
-          return; 
-        }
-        modalBody.innerHTML = src.innerHTML;
-        modal.classList.add('active');
-      }
-
-      function closeModal(){
-        modal.classList.remove('active');
-        modalBody.innerHTML = '';
-      }
-
-      document.addEventListener('click', (e)=>{
-        const trigger = e.target.closest('[data-modal-target]');
-        if (trigger){
-          e.preventDefault();
-          openFrom(trigger.getAttribute('data-modal-target'));
-          return;
-        }
-        if (e.target === closeBtn || e.target === modal) {
-          closeModal();
-        }
-      });
-
-      // Close on Escape key
-      document.addEventListener('keydown', (e)=>{
-        if (e.key === 'Escape' && modal.classList.contains('active')){
-          closeModal();
-        }
-      });
-    })();
-  </script>
 
 
 
