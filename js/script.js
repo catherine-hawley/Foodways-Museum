@@ -8,6 +8,7 @@ function showSection(section) {
     // Modal functionality
     (function(){
       const modal = document.getElementById('modal');
+      if (!modal) return;
       const modalBody = document.getElementById('modal-body');
       const closeBtn = modal.querySelector('.close-modal');
 
